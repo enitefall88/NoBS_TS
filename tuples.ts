@@ -8,7 +8,7 @@ function add3Coordinates(coord1: ThreeCoordinates, coord2: ThreeCoordinates): Th
 
 function simpleStringState(  //tracks a piece of stored space
     initial: string  // initial is saved here
-): [()=> string, (v:string) => void] { // description of two functions in array because it`s two
+): [()=> string, (v:string) => void] { // tuple of two functions in array because it`s two
   let str: string = initial
   return [
     () => str,
@@ -18,7 +18,12 @@ function simpleStringState(  //tracks a piece of stored space
  ]
 }
 
-let [str1getter, str1setter] = simpleStringState("hello")
+let [str1getter, str1setter] = simpleStringState("hello") //just load in memory and pass initial string in
+console.log(str1getter())  // logs hello through ()=> str
+str1setter("goodbye") // changes str to goodbye
 console.log(str1getter())
-str1setter("goodbye")
-console.log(str1getter())
+
+let [str2getter, str2setter] = simpleStringState("hello Jack")
+console.log(str2getter())
+str2setter("goodbye jack")
+console.log(str2getter())
