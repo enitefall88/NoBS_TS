@@ -4,17 +4,14 @@ function locationState (input: string) : [
 ] {
   let address = input
   return [
-    () => input,
-    (v) => address = v
+    () => address, // return address not input
+    (v) => {address = v}
   ]
 }
 
 let [getter, setter] = locationState("Burnaby")
 console.log(getter())
-
+setter("Van")
+console.log(getter())
 
 let [getter2, setter2] = locationState("Cancouver")
-console.log(getter2())
-
-setter("Gulp")
-console.log(getter())
