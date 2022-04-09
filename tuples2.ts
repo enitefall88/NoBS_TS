@@ -1,16 +1,20 @@
-function currentAddressState(
-    initialAddress:  string
-): [()=> string, (v:string) => void] {
-  let address = initialAddress
+function locationState (input: string) : [
+  () => void,
+  (v: string) => void
+] {
+  let address = input
   return [
-    () => address,
-    (v) => {
-  address = v
-  }
+    () => input,
+    (v) => address = v
   ]
 }
 
-let [adressGetter, adressSetter] = currentAddressState("Vancouver")
-console.log(adressGetter())
-console.log(adressSetter("Burnaby"))
-console.log(adressGetter())
+let [getter, setter] = locationState("Burnaby")
+console.log(getter())
+
+
+let [getter2, setter2] = locationState("Cancouver")
+console.log(getter2())
+
+setter("Gulp")
+console.log(getter())
