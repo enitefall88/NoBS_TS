@@ -26,3 +26,22 @@ function ranker<RankItem>(items: RankItem[], rank: (v: RankItem) => number
   ranks.sort((a,b) => a.rank - b.rank)
   return ranks.map(rank => rank.item)
 }
+
+interface Pokemon {
+  name: string,
+  hp: number
+ }
+
+ let pokemon: Pokemon[] = [
+   {
+     name: "Bulbasaur",
+     hp: 20
+   },
+   {
+     name: "Pica",
+     hp: 33
+   }
+ ]
+
+let ranks = ranker(pokemon, ({hp})=> hp)
+console.log(ranks)
