@@ -20,11 +20,12 @@ function ranker<RankItem>(items: RankItem[], rank: (v: RankItem) => number
 
   let ranks: Rank<RankItem>[] = items.map((item) => ({ /// why curly braces do not work here?
  item,
- rank: rank(item)
+ rank: rank(item) //?
  }))
+console.log(ranks)
+  console.log(ranks.sort((a,b) => a.rank - b.rank))
 
-  ranks.sort((a,b) => a.rank - b.rank)
-  return ranks.map(rank => rank.item)
+ return ranks.map(rank => rank.item)
 }
 
 interface Pokemon {
@@ -35,11 +36,11 @@ interface Pokemon {
  let pokemon: Pokemon[] = [
    {
      name: "Bulbasaur",
-     hp: 20
+     hp: 33
    },
    {
      name: "Pica",
-     hp: 33
+     hp: 20
    }
  ]
 
