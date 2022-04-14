@@ -11,10 +11,11 @@ myForEach(["a","b","c"], (v)=> console.log(`forEach ${v}`))
 
 
 
-let reducer = (array: number[]) => {
-array.reduce((acc, val) => {
+function reducer (array: number[]): number {
+let result = array.reduce((acc, val) => {
    return acc + val
  })
+  return result
 }
 
 console.log(reducer([1,2,3,4,5]))
