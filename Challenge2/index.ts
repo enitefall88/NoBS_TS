@@ -9,13 +9,14 @@ myForEach(["a","b","c"], (v)=> console.log(`forEach ${v}`))
 
 
 
-/*function badFilter<T>(values: T[], filterFunc: (v: T) => boolean): T[] {
-  return values.reduce((a, v) =>(
-    filterFunc(v) ? [...a,v] : a, [] as T[]))
-}*/
-function myFilter<T>(values: T[], filterFunc: (val: T) => boolean): T[] {
-  return values.reduce((a, v) => (filterFunc(v) ? [...a, v] : a), [] as T[]);
+function anotherFilter<T>(values: T[], filterFunc: (val: T) => boolean): T[] {
+  return values.reduce((acc, currentVal) => filterFunc(currentVal) ? [...acc, currentVal] : acc, [] as T[])
 }
+
+
+function myFilter<T>(values: T[], filterFunc: (val: T) => boolean): T[] {
+  return values.reduce((a, v) => filterFunc(v) ? [...a, v] : a, [] as T[]); //filterFunc decides if it is in or out
+}// [...a,v] adding v to existing array ...a
 
 
 console.log(myFilter([1,2,3,4,5], (v) => v % 2 === 0))
