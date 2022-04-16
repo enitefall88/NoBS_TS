@@ -2,19 +2,28 @@ function myForEach<T>(items: T[], forEachFunc: (v: T)=> void): void {
   items.reduce((a, v)=> {
     forEachFunc(v)
     return undefined
-  }, undefined)
+  }, undefined) // undefined is an initial value
 }
 
 myForEach(["a","b","c"], (v)=> console.log(`forEach ${v}`))
 
 
 
+/*function badFilter<T>(values: T[], filterFunc: (v: T) => boolean): T[] {
+  return values.reduce((a, v) =>(
+    filterFunc(v) ? [...a,v] : a, [] as T[]))
+}*/
+function myFilter<T>(values: T[], filterFunc: (val: T) => boolean): T[] {
+  return values.reduce((a, v) => (filterFunc(v) ? [...a, v] : a), [] as T[]);
+}
 
+
+console.log(myFilter([1,2,3,4,5], (v) => v % 2 === 0))
 
 function reducer (array: number[]): number {
-let result = array.reduce((acc, val) => {
+let result = array.reduce((acc, val ) => { //acc is previous value, and value is current value
    return acc + val
- })
+ }, 10) // 10 is initial value here
   return result
 }
 
