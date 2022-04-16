@@ -23,9 +23,14 @@ console.log(myFilter([1,2,3,4,5], (v) => v % 2 === 0))
 
 function reducer (array: number[]): number {
 let result = array.reduce((acc, val ) => { //acc is previous value, and value is current value
-   return acc + val
+   return acc + val // no initial value start with accumulator
  }, 10) // 10 is initial value here
   return result
 }
 
 console.log(reducer([1,2,3,4,5]))
+
+function myMap<T, K>(values: T[], mapFunc: (v: T) => K) : K[] {
+  return values.reduce((a, v) =>  [...a, mapFunc(v)], [] as K[])
+}
+console.log(myMap([1,2,3,4,5], (v) => v + 3))
