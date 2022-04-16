@@ -33,4 +33,4 @@ console.log(reducer([1,2,3,4,5]))
 function myMap<T, K>(values: T[], mapFunc: (v: T) => K) : K[] {
   return values.reduce((a, v) =>  [...a, mapFunc(v)], [] as K[])
 }
-console.log(myMap([1,2,3,4,5], (v) => v + 3))
+console.log(myMap([1,2,3,4,5], (v) => (v + 3)).toString())
