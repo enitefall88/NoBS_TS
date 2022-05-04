@@ -65,3 +65,29 @@ console.log(
   ])
 );
 
+
+interface CarInfo {
+  model: string,
+  year: number,
+  colour: string
+}
+
+type CarMakes = "Honda" | "Toyota" | "Mazda"
+
+const cars: Record<CarMakes, CarInfo> = {
+  "Honda": {
+    model: "Z1",
+    year: 1888,
+    colour:"blue"
+  },
+  "Mazda": {
+     model: "Z1",
+    year: 1888,
+    colour:"blue"
+  },
+  "Toyota": {
+     model: "Z1",
+    year: 1888,
+    colour:"blue"
+  }
+}
