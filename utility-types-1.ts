@@ -10,6 +10,11 @@ interface MyUser {
   email?: string
 }*/
 
+let jackDonovan:MyUser = {
+  name:" sdssd",
+  id: 333,
+  }
+
 type MyUserOptionals = Partial<MyUser>
 
 let merge = (user: MyUser, overrides: MyUserOptionals) => {
