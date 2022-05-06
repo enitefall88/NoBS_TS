@@ -27,3 +27,5 @@ const reallyConst = [1,2,3] as const
 
 //reallyConst.push(4)
 console.log(reallyConst)
+console.log(makeCoordinate(4,5,6), console.log(5)) /// ?
+
